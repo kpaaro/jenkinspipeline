@@ -2,6 +2,7 @@ pipeline {
     agent any
     
     parameters { 
+         string(name: 'key', defaultValue: '/utils/id_rsa/tomcat_demo.pem', description: 'rsakey')
          string(name: 'tomcat_dev', defaultValue: '18.223.235.204', description: 'Staging Server')
          string(name: 'tomcat_prod', defaultValue: '13.59.152.249', description: 'Production Server')
     } 
@@ -27,13 +28,13 @@ stages{
             parallel{
                 stage ('Deploy to Staging'){
                     steps {
-                        sh "scp -i /utils/id_rsa/tomcat_demo.pem **/target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
+                        sh "scp -i ${params.key} **/target/*.war ec2-user@${params.tomcat_dev}:/var/lib/tomcat7/webapps"
                     }
                 }
 
                 stage ("Deploy to Production"){
                     steps {
-                        sh "scp -i /utils/id_rsa/tomcat_demo.pem **/target/*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps"
+                        sh "scp -i ${params.key} **/target/*.war ec2-user@${params.tomcat_prod}:/var/lib/tomcat7/webapps"
                     }
                 }
             }
