@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     parameters { 
-         string(name: 'key', defaultValue: 'c:/utils/id_rsa/tomcat_demo.pem', description: 'rsakey')
+         string(name: 'key', defaultValue: '/utils/id_rsa/tomcat_demo.pem', description: 'rsakey')
          string(name: 'tomcat_dev', defaultValue: '18.223.235.204', description: 'Staging Server')
          string(name: 'tomcat_prod', defaultValue: '13.59.152.249', description: 'Production Server')
     } 
