@@ -34,7 +34,7 @@ stages{
 
                 stage ("Deploy to Production"){
                     steps {
-                         bat "winscp scp:ec2-user@${params.tomcat_prod}:/var/lib/tomcat8/webapps /privatekey=\"/utils/id_rsa/tomcat_demo.ppk\" /upload **/target/*.war  -hostkey=\"ssh-ed25519 256 iSgD6xqziRbcEY5LZVw4MJt3GSt59ogtpjQm/4uoTxY=\" close exit"
+                         bat "winscp scp:ec2-user@${params.tomcat_prod}:/var/lib/tomcat8/webapps /privatekey=\"/utils/id_rsa/tomcat_prod.ppk\" /upload **/target/*.war  -hostkey=\"ssh-ed25519 256 iSgD6xqziRbcEY5LZVw4MJt3GSt59ogtpjQm/4uoTxY=\" close exit"
                     }
                 }
             }
