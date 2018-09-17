@@ -3,8 +3,8 @@ pipeline {
     
     parameters { 
          string(name: 'key', defaultValue: '/utils/id_rsa/tomcat_demo.ppk', description: 'rsakey')
-         string(name: 'tomcat_dev', defaultValue: '18.223.248.109', description: 'Staging Server')
-         string(name: 'tomcat_prod', defaultValue: '18.191.194.126', description: 'Production Server')
+         string(name: 'tomcat_dev', defaultValue: 'ec2-18-223-248-109.us-east-2.compute.amazonaws.com', description: 'Staging Server')
+         string(name: 'tomcat_prod', defaultValue: 'ec2-18-191-194-126.us-east-2.compute.amazonaws.com', description: 'Production Server')
     } 
 
     triggers {
